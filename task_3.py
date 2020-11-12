@@ -17,11 +17,11 @@ import timeit
 import random
 from statistics import median
 
-origin_lst = [3, 4, 3, 3, 5, 3, 3]
+# origin_lst = [3, 4, 3, 3, 5, 3, 3]
 
-# m = int(input("Введи размер массива: "))
+m = int(input("Введи размер массива: "))
 
-# origin_lst = [random.randint(0, 100) for _ in range(2*m + 1)]
+origin_lst = [random.randint(0, 100) for _ in range(2*m + 1)]
 
 right = []
 left = []
@@ -30,17 +30,17 @@ left = []
 def my_func(lst):
     n = 0
     my_median = origin_lst[n]
-    while True:
-        if
+    while len(right) != len(left):
         for i in range(len(origin_lst)-1):
             if my_median < origin_lst[i + 1]:
                 left.append(origin_lst[i + 1])
             elif my_median >= origin_lst[i + 1]:
                 right.append(origin_lst[i + 1])
-
-        return left, right
+    return my_median
 
 
 print(origin_lst)
 print(median(origin_lst))
 print(my_func(origin_lst))
+
+"""Медианой будет тот элемент при котором получится разделить исходный список на два одинаковых по размеру массива"""
