@@ -44,6 +44,8 @@ def my_func():
 
 
 print(my_func())
+print(timeit.timeit("my_func()",
+                    setup="from __main__ import my_func", number=1))
 
 """Медианой будет тот элемент при котором получится разделить исходный список на два одинаковых по размеру массива"""
 
