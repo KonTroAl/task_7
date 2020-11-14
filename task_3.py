@@ -21,22 +21,26 @@ from statistics import median
 
 m = int(input("Введи размер массива: "))
 
-origin_lst = [random.randint(0, 100) for _ in range(2*m + 1)]
-
-right = []
-left = []
+origin_set = {random.randint(0, 100) for _ in range(2 * m + 1)}
+origin_lst = list(origin_set)
 
 
 def my_func(lst):
+    right = []
+    left = []
     n = 0
-    my_median = origin_lst[n]
-    while len(right) != len(left):
-        for i in range(len(origin_lst)-1):
-            if my_median < origin_lst[i + 1]:
-                left.append(origin_lst[i + 1])
-            elif my_median >= origin_lst[i + 1]:
-                right.append(origin_lst[i + 1])
-    return my_median
+    while len(right) == 0 and len(left) == 0:
+        my_median = origin_lst[n]
+        for i in range(len(origin_lst)):
+            if my_median < origin_lst[i]:
+                left.append(origin_lst[i])
+            elif my_median > origin_lst[i]:
+                right.append(origin_lst[i])
+        if len(right) == len(left):
+            return origin_lst[n]
+        n += 1
+        right.clear()
+        left.clear()
 
 
 print(origin_lst)
